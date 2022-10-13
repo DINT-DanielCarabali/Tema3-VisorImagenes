@@ -5,32 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tema3_VisorImagenes"
         mc:Ignorable="d"
-        Title="Visor de imágenes" Height="530" Width="650" MinHeight="530" MinWidth="650" Icon="assets/image_document.ico">
+        Title="Visor de imágenes" Height="530" Width="650" MinHeight="530" MinWidth="650"
+        Icon="assets/image_document.ico">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Rubik"/>
+        </Style>
+
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Width" Value="100"/>
+        </Style>
+
+        <Style TargetType="{x:Type Button}" x:Key="BotonesArriba" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="DockPanel.Dock" Value="Top"/>
+        </Style>
+
+        <Style TargetType="{x:Type Button}" x:Key="BotonesAbajo" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="DockPanel.Dock" Value="Bottom"/>
+        </Style>
+
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="Source" Value="./assets/episodioIV.jpg"/>
+            <Setter Property="Width" Value="120"/>
+        </Style>
+    </Window.Resources>
+    
     <DockPanel>
         <DockPanel Margin="10" Background="LightBlue" DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
-            <TextBlock Margin="10" FontSize="20" TextAlignment="Left" FontFamily="Rubik" HorizontalAlignment="Left">Nº de imágenes: 10</TextBlock>
-            <TextBlock Margin="10" FontSize="20" TextAlignment="Right" FontFamily="Rubik" HorizontalAlignment="Right">Diseñado por Daniel Carabali</TextBlock>
+            <TextBlock TextAlignment="Left" HorizontalAlignment="Left">Nº de imágenes: 10</TextBlock>
+            <TextBlock TextAlignment="Right" HorizontalAlignment="Right">Diseñado por Daniel Carabali</TextBlock>
         </DockPanel>
+        
         <Border DockPanel.Dock="Right" Margin="10" BorderBrush="Black" BorderThickness="2" CornerRadius="5">
             <DockPanel Background="LightGreen" Width="130" HorizontalAlignment="Right" LastChildFill="False">
-                <Button DockPanel.Dock="Top" Margin="5" Width="100">Añadir imagen</Button>
-                <Button DockPanel.Dock="Top" Margin="5" Width="100">Eliminar imagen</Button>
-                <Button DockPanel.Dock="Top" Margin="5" Width="100">Eliminar todas</Button>
-                <Button DockPanel.Dock="Bottom" Margin="5" Width="100">Recortar</Button>
-                <Button DockPanel.Dock="Bottom" Margin="5" Width="100">Rotar</Button>
+                <Button Style="{StaticResource BotonesArriba}">Añadir imagen</Button>
+                <Button Style="{StaticResource BotonesArriba}">Eliminar imagen</Button>
+                <Button Style="{StaticResource BotonesArriba}">Eliminar todas</Button>
+                <Button Style="{StaticResource BotonesAbajo}">Recortar</Button>
+                <Button Style="{StaticResource BotonesAbajo}">Rotar</Button>
             </DockPanel>
         </Border>
+        
         <StackPanel>
-            <TextBlock FontFamily="Rubik" FontSize="40" TextAlignment="Center">Visor de imágenes</TextBlock>
+            <TextBlock FontSize="40" TextAlignment="Center">Visor de imágenes</TextBlock>
             <WrapPanel>
-                <Image Source="assets/episodioIV.jpg" Width="120"/>
-                <Image Source="assets/episodioIV.jpg" Width="120"/>
-                <Image Source="assets/episodioIV.jpg" Width="120"/>
-                <Image Source="assets/episodioIV.jpg" Width="120"/>
-                <Image Source="assets/episodioIV.jpg" Width="120"/>
-                <Image Source="assets/episodioIV.jpg" Width="120"/>
-                <Image Source="assets/episodioIV.jpg" Width="120"/>
-                <Image Source="assets/episodioIV.jpg" Width="120"/>
+                <Image/>
+                <Image/>
+                <Image/>
+                <Image/>
+                <Image/>
+                <Image/>
+                <Image/>
+                <Image/>
             </WrapPanel>
         </StackPanel>
     </DockPanel>
